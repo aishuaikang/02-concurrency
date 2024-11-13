@@ -9,7 +9,7 @@ const M: usize = 4;
 fn main() -> anyhow::Result<()> {
     let metrics = Metrics::new();
 
-    println!("{:?}", metrics.snapshot());
+    println!("{}", metrics);
 
     for index in 0..N {
         task_worker(index, metrics.clone());
@@ -21,7 +21,7 @@ fn main() -> anyhow::Result<()> {
 
     loop {
         thread::sleep(Duration::from_secs(2));
-        println!("{:?}", metrics.snapshot());
+        println!("{}", metrics);
     }
 
     // (0..100).for_each(|index| {
